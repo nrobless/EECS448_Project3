@@ -186,7 +186,6 @@ table tr td:last-child {
 .sidebar-item:hover {
     color: #FFFFFF;
     background-color: #23272A;
-
     cursor: pointer;
 }
 
@@ -224,6 +223,12 @@ table tr td:last-child {
 
     -webkit-border-radius: 10px;
     border-radius: 10px;
+    border: 0;
+}
+
+#sidebar input[type=reset]:hover, #sidebar input[type=submit]:hover {
+    background-color: #DDDDDD;
+    cursor: pointer;
 }
 
 #sidebar input[type=reset] {
