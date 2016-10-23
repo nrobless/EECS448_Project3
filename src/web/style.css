@@ -15,6 +15,7 @@ html, body {
     margin: 0;
     list-style: none;
     
+    /* Flexbox CSS from https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -30,10 +31,16 @@ html, body {
     height: 50px;
     padding: 15px 50px;
     margin: 0;
+    position: relative;
 
     font-size: 24pt;
     color: #ffffff;
     background-color: #43739b;
+
+    /* Box-shadow solution from http://stackoverflow.com/questions/9199433/cant-get-box-shadow-to-appear-above-div */
+    -webkit-box-shadow: 0px 1px 1px #23272A;
+    -moz-box-shadow: 0px 1px 1px #23272A;
+    box-shadow: 0px 1px 1px #23272A;
 }
 
 #main {
@@ -42,7 +49,7 @@ html, body {
     padding: 0;
     margin: 0;
     list-style: none;
-    
+   
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -54,9 +61,6 @@ html, body {
 
     color: #23272A;
     background-color: #ffffff;
-    -webkit-box-shadow: 20px 2px 2px #23272A;
-    -moz-box-shadow: 20px 2px 2px #23272A;
-    box-shadow: 20px 2px 2px #23272A;
 }
 
 #game {
@@ -70,6 +74,8 @@ html, body {
 #chat {
     width: 100%;
     height: 40%;
+
+    border-top: 1px solid #99AAB5;
 }
 
 #sidebar {
@@ -78,6 +84,7 @@ html, body {
     padding: 0;
     margin: 0;
     list-style: none;
+    position: relative;
     
     display: -webkit-box;
     display: -moz-box;
@@ -90,4 +97,9 @@ html, body {
 
     color: #99AAB5;
     background-color: #2C2F33;
+
+    /* Box-shadow solution from http://stackoverflow.com/questions/9199433/cant-get-box-shadow-to-appear-above-div 
+    -webkit-box-shadow: -2px 0px 1px #23272A;
+    -moz-box-shadow: -2px 0px 1px #23272A;
+    box-shadow: -2px 0px 1px #23272A;*/
 }
