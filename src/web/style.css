@@ -1,0 +1,93 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+
+    font-size: 12pt;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+#header {
+    width: 100%;
+    height: 50px;
+    padding: 15px 50px;
+    margin: 0;
+
+    font-size: 24pt;
+    color: #ffffff;
+    background-color: #43739b;
+}
+
+#main {
+    width: 80%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+
+    color: #23272A;
+    background-color: #ffffff;
+    -webkit-box-shadow: 20px 2px 2px #23272A;
+    -moz-box-shadow: 20px 2px 2px #23272A;
+    box-shadow: 20px 2px 2px #23272A;
+}
+
+#game {
+    width: 100%;
+    height: 60%;
+
+    color: #23272A;
+    background-color: #A67B5B;
+}
+
+#chat {
+    width: 100%;
+    height: 40%;
+}
+
+#sidebar {
+    width: 20%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+
+    color: #99AAB5;
+    background-color: #2C2F33;
+}
