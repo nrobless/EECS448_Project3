@@ -218,6 +218,7 @@ table tr td:last-child {
     justify-content: center;
 }
 
+/* Button press effect from http://www.w3schools.com/css/css3_buttons.asp */
 #sidebar input[type=reset], #sidebar input[type=submit] {
     width: 130px;
     height: auto;
@@ -231,11 +232,20 @@ table tr td:last-child {
     -webkit-border-radius: 10px;
     border-radius: 10px;
     border: 0;
+    box-shadow: 0 8px #999999;
 }
 
 #sidebar input[type=reset]:hover, #sidebar input[type=submit]:hover {
+    cursor: pointer;
+    box-shadow: 0 4px #999999;
+    transform: translateY(4px);
+}
+
+#sidebar input[type=reset]:active, #sidebar input[type=submit]:active {
     background-color: #DDDDDD;
     cursor: pointer;
+    box-shadow: 0 0 #999999;
+    transform: translateY(8px);
 }
 
 #sidebar input[type=reset] {
