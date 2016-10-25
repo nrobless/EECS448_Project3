@@ -1,3 +1,60 @@
-<h1>
-  {{title}}
-</h1>
+<div id="container">
+  <!-- Header -->
+  <div id="header">
+    {{title}}
+  </div>
+
+  <!-- Container for game and chatbox -->
+  <div id="main">
+    <!-- Game screen -->
+    <div id="game">
+      <table id="board">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+    <!-- Chatbox -->
+    <div id="chat">
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <div class="sidebar-header">Player Select</div>
+    <!-- Label solution from http://stackoverflow.com/questions/7727255/how-can-i-make-an-html-radiobutton-with-a-big-target-area -->
+    <label>
+      <div class="sidebar-item">
+        <input id="p0" name="player" type="radio">None
+      </div>
+    </label>
+    <label>
+      <div class="sidebar-item">
+        <input id="p1" name="player" type="radio">Player 1
+      </div>
+    </label>
+    <label>
+      <div class="sidebar-item">
+        <input id="p2" name="player" type="radio">Player 2
+      </div>
+    </label>
+    <div class="sidebar-header">Controls</div>
+    <div class="sidebar-buttons">
+      <input type="reset">
+      <input type="submit" value="End Turn">
+    </div>
+  </div>
+
+</div>
