@@ -24,6 +24,7 @@
     padding: 20px 50px;
     margin: 0;
     position: relative;
+    z-index: 1;
 
     font-size: 24pt;
     color: #FFFFFF;
@@ -62,6 +63,7 @@
     height: 60%;
     padding: 0;
     margin: 0;
+    position: relative;
     list-style: none;
    
     display: -webkit-box;
@@ -142,6 +144,20 @@ table tr td:first-child {
 
 table tr td:last-child {
     border-right: 0;
+}
+
+#playerTurn {
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 50px;
+    bottom: 36pt;
+
+    font-size: 24pt;
+    font-weight: bold;
+    color: #556B2F;
 }
 
 /*** Chatbox ***/
