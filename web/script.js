@@ -54,18 +54,18 @@ function updateGameInfo(jsonData) {
         console.log( "Error: no whosTurn field this update!!!" );
     }
 
-    if( jsonData["winner"] )
-    {
-        if(jsonData["winner"] === "NO_ONE") {
-            gameActive = true;
-        } else {
-            gameActive = false;
-        }
-    }
-    else
-    {
-        console.log( "Error: no winner field this update!!!" );
-    }
+    // if( jsonData["status"] )
+    // {
+    //     if(jsonData["status"] === "Waiting") {
+    //         gameActive = true;
+    //     } else {
+    //         gameActive = false;
+    //     }
+    // }
+    // else
+    // {
+    //     console.log( "Error: no winner field this update!!!" );
+    // }
     //
     // if( jsonData["player"] && jsonData["player"][0] && jsonData["player"][0]["name"] && jsonData["player"][0]["status"])
     // {
@@ -95,7 +95,7 @@ function updateGameInfo(jsonData) {
     //
     if (jsonData["board"]) {
         var board = jsonData["board"];
-        if(gameActive || jsonData["status"] === "gameOver") {
+        if(jsonData["status"] === "gameON") {
             updateBoard(board);
         }
         // document.getElementById("r0c0").value = "" + jsonData["board"][0][0];
@@ -176,7 +176,7 @@ function stream_onreadystatechange() {
 
         if (this.j_stream_name == "stream1" || this.j_stream_name == "stream2") {
             if (keepStreamsGoing) {
-                sendCommand(this.j_stream_name, getStreamData);
+                sendCommand(this.j_stream_name, getStreamData());
             }
         }
     }
@@ -196,10 +196,21 @@ function sendCommand(stream_name, postData) {
     xhttp.send(postData);
 }
 
-var getStreamData = JSON.stringify({"name": "getGameStream", "player": currentPlayer});
-var startGame = JSON.stringify({"name": "startGame", "player": currentPlayer});
-var sendMessageData1 = JSON.stringify({"name": "sendMessage", "player": currentPlayer, "message": "I love egg plant."});
-var sendMessageData2 = JSON.stringify({"name": "sendMessage", "player": currentPlayer, "message": "I can't stand MIKEY!!!!!"});
+var getStreamData = function() {
+    return JSON.stringify({"name": "getGameStream", "player": currentPlayer});
+};
+
+var startGame = function() {
+    return JSON.stringify({"name": "startGame", "player": currentPlayer});
+};
+
+var sendMessageData1 = function() {
+    JSON.stringify({"name": "sendMessage", "player": currentPlayer, "message": "I love egg plant."});
+};
+
+var sendMessageData2 = function() {
+    return JSON.stringify({"name": "sendMessage", "player": currentPlayer, "message": "I can't stand MIKEY!!!!!"});
+};
 
 function sendMove(row, col) {
     var sendMoveData = JSON.stringify({"name": "move", "player": currentPlayer, "row": row, "col": col});
@@ -208,8 +219,8 @@ function sendMove(row, col) {
 
 function startStreams() {
     keepStreamsGoing = true;
-    sendCommand("stream1", getStreamData);
-    sendCommand("stream2", getStreamData);
+    sendCommand("stream1", getStreamData());
+    sendCommand("stream2", getStreamData());
 }
 
 function stopStreams() {
@@ -249,9 +260,9 @@ function resetBoard() {
         }
     }
 }
-function setGameStatus(boolVar) {
-    gameActive = boolVar;
-}
+// function setGameStatus(boolVar) {
+//     gameActive = boolVar;
+// }
 
 $('.boardPlace').click(function (event) {
     if(currentPlayer === playerTurn) {
@@ -266,3 +277,9 @@ $("input:radio[name = 'player']").click(function () {
     changeIcon(currentPlayer);
 });
 
+console.log(currentPlayer);
+
+/* To do
+On gameOver: Make sure to refresh screen
+On startGame: reset board
+ */
