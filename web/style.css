@@ -175,21 +175,6 @@ table tr td:last-child {
   border-right: 0;
 }
 
-
-#playerTurn {
-  width: auto;
-  height: auto;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  left: 50px;
-  bottom: 36pt;
-
-  font-size: 24pt;
-  font-weight: bold;
-  color: #556B2F;
-}
-
 /*** Chatbox ***/
 #chat {
   width: 100%;
@@ -242,7 +227,7 @@ table tr td:last-child {
   border-bottom: 1px solid rgba(172, 177, 181, 0.5);
 }
 
-#sidebar label:nth-child(4) {
+#sidebar label:nth-child(3) {
   border-bottom: 0;
 }
 
@@ -319,5 +304,9 @@ table tr td:last-child {
 }
 
 #sidebar input[type=submit] {
+  color: #556B2F;
+}
+
+#playerTurn {
   color: #556B2F;
 }
