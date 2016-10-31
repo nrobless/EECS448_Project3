@@ -95,7 +95,7 @@ function updateGameInfo(jsonData) {
     //
     if (jsonData["board"]) {
         var board = jsonData["board"];
-        if(jsonData["status"] === "gameON") {
+        if(jsonData["status"] === "gameON" || jsonData["status"] === "gameOver") {
             updateBoard(board);
         }
         // document.getElementById("r0c0").value = "" + jsonData["board"][0][0];
@@ -201,6 +201,7 @@ var getStreamData = function() {
 };
 
 var startGame = function() {
+    resetBoard();
     return JSON.stringify({"name": "startGame", "player": currentPlayer});
 };
 
@@ -259,6 +260,9 @@ function resetBoard() {
             $("#r"+i+"c"+j).removeClass('boardPlace-marked').addClass('boardPlace');
         }
     }
+
+    currentPlayer = $("input:radio[name ='player']:checked").val();
+    changeIcon(currentPlayer);
 }
 // function setGameStatus(boolVar) {
 //     gameActive = boolVar;
