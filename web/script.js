@@ -95,7 +95,7 @@ function updateGameInfo(jsonData) {
     //
     if (jsonData["board"]) {
         var board = jsonData["board"];
-        if(jsonData["status"] === "gameON" || jsonData["status"] === "gameOver") {
+        if(jsonData["status"]) {
             updateBoard(board);
         }
         // document.getElementById("r0c0").value = "" + jsonData["board"][0][0];
@@ -249,6 +249,8 @@ function updateBoard(board) {
                 $("#r"+i+"c"+j).addClass('boardPlace-marked').removeClass('boardPlace').css("background-image", "url('./X.svg')");
             } else if (board[i][j] === 'O') {
                 $("#r"+i+"c"+j).addClass('boardPlace-marked').removeClass('boardPlace').css("background-image", "url('./O.svg')");
+            } else {
+                $("#r"+i+"c"+j).addClass('boardPlace-marked').removeClass('boardPlace').css("background-image", "url('./blank.svg')");
             }
         }
     }
@@ -285,5 +287,5 @@ console.log(currentPlayer);
 
 /* To do
 On gameOver: Make sure to refresh screen
-On startGame: reset board
+
  */
