@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>EECS448 Project 3</title>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<div id="container">
+  <!-- Header -->
+  <div id="header">
+    EECS448 Project 3
+  </div>
+
+  <!-- Container for game and chatbox -->
+  <div id="main">
+    <!-- Game screen -->
+    <div id="game">
+      <table id="board">
+        <tr>
+          <td>
+            <label for="11">
+              <div class="boardPlace" id="11">
+                <input type="checkbox" value="X" id="11" name="boardPlace" />
+              </div>
+            </label>
+          </td>
+          <td>
+            <label for="12">
+              <div class="boardPlace" id="12">
+                <input type="checkbox" value="X" id="12" name="boardPlace" />
+              </div>
+            </label>
+          </td>
+          <td>
+            <label for="13">
+              <div class="boardPlace" id="13">
+                <input type="checkbox" value="X" id="13" name="boardPlace" />
+              </div>
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="21">
+              <div class="boardPlace" id="21">
+                <input type="checkbox" value="X" id="21" name="boardPlace" />
+              </div>
+            </label>
+          </td>
+          <td>
+            <label for="22">
+              <div class="boardPlace" id="22">
+                <input type="checkbox" value="X" id="22" name="boardPlace" />
+              </div>
+            </label>
+          </td>
+          <td>
+            <label for="23">
+              <div class="boardPlace" id="23">
+                <input type="checkbox" value="X" id="23" name="boardPlace" />
+              </div>
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="31">
+              <div class="boardPlace" id="31">
+                <input type="checkbox" value="X" id="31" name="boardPlace" />
+              </div>
+            </label>
+          </td>
+          <td>
+            <label for="32">
+              <div class="boardPlace" id="32">
+                <input type="checkbox" value="X" id="32" name="boardPlace" />
+              </div>
+            </label>
+          </td>
+          <td>
+            <label for="33">
+              <div class="boardPlace" id="33">
+                <input type="checkbox" value="X" id="33" name="boardPlace" />
+              </div>
+            </label>
+          </td>
+        </tr>
+      </table>
+      <div id="playerTurn">Player 1's Turn</div>
+    </div>
+    <!-- Chatbox -->
+    <div id="chat">
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <div class="sidebar-header">Player Select</div>
+    <!-- Label solution from http://stackoverflow.com/questions/7727255/how-can-i-make-an-html-radiobutton-with-a-big-target-area -->
+    <label>
+      <div class="sidebar-item">
+        <input id="p0" name="player" type="radio">None
+      </div>
+    </label>
+    <label>
+      <div class="sidebar-item">
+        <input id="p1" name="player" type="radio">Player 1
+      </div>
+    </label>
+    <label>
+      <div class="sidebar-item">
+        <input id="p2" name="player" type="radio">Player 2
+      </div>
+    </label>
+    <div class="sidebar-header">Controls</div>
+    <div class="sidebar-buttons">
+      <input type="reset">
+      <input type="submit" value="End Turn">
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
