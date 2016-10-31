@@ -21,66 +21,66 @@
       <table id="board">
         <tr>
           <td>
-            <label for="11">
-              <div class="boardPlace" id="11">
+            <label for="r0c0">
+              <div class="boardPlace unmarked" id="r0c0" onclick="sendMove(0,0)">
               </div>
             </label>
           </td>
           <td>
-            <label for="12">
-              <div class="boardPlace" id="12">
+            <label for="r0c1">
+              <div class="boardPlace unmarked" id="r0c1" onclick="sendMove(0,1)">
               </div>
             </label>
           </td>
           <td>
-            <label for="13">
-              <div class="boardPlace" id="13">
-              </div>
-            </label>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="21">
-              <div class="boardPlace" id="21">
-              </div>
-            </label>
-          </td>
-          <td>
-            <label for="22">
-              <div class="boardPlace" id="22">
-              </div>
-            </label>
-          </td>
-          <td>
-            <label for="23">
-              <div class="boardPlace" id="23">
+            <label for="r0c2">
+              <div class="boardPlace unmarked" id="r0c2" onclick="sendMove(0,2)">
               </div>
             </label>
           </td>
         </tr>
         <tr>
           <td>
-            <label for="31">
-              <div class="boardPlace" id="31">
+            <label for="r1c0">
+              <div class="boardPlace unmarked" id="r1c0" onclick="sendMove(1,0)">
               </div>
             </label>
           </td>
           <td>
-            <label for="32">
-              <div class="boardPlace" id="32">
+            <label for="r1c1">
+              <div class="boardPlace unmarked" id="r1c1" onclick="sendMove(1,1)">
               </div>
             </label>
           </td>
           <td>
-            <label for="33">
-              <div class="boardPlace" id="33">
+            <label for="r1c2">
+              <div class="boardPlace unmarked" id="r1c2" onclick="sendMove(1,2)">
+              </div>
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="r2c0">
+              <div class="boardPlace unmarked" id="r2c0" onclick="sendMove(2,0)">
+              </div>
+            </label>
+          </td>
+          <td>
+            <label for="r2c1">
+              <div class="boardPlace unmarked" id="r2c1" onclick="sendMove(2,1)">
+              </div>
+            </label>
+          </td>
+          <td>
+            <label for="r2c2">
+              <div class="boardPlace unmarked" id="r2c2" onclick="sendMove(2,2)">
               </div>
             </label>
           </td>
         </tr>
       </table>
-      <div id="playerTurn">Player 1's Turn</div>
+      <div id="playerTurn"></div>
     </div>
     <!-- Chatbox -->
     <div id="chat">
@@ -93,26 +93,24 @@
     <!-- Label solution from http://stackoverflow.com/questions/7727255/how-can-i-make-an-html-radiobutton-with-a-big-target-area -->
     <label>
       <div class="sidebar-item">
-        <input id="p0" name="player" type="radio">None
+        <input id="p1" name="player" type="radio" value="P1" checked>Player 1
       </div>
     </label>
     <label>
       <div class="sidebar-item">
-        <input id="p1" name="player" type="radio">Player 1
-      </div>
-    </label>
-    <label>
-      <div class="sidebar-item">
-        <input id="p2" name="player" type="radio">Player 2
+        <input id="p2" name="player" type="radio" value="P2">Player 2
       </div>
     </label>
     <div class="sidebar-header">Controls</div>
     <div class="sidebar-buttons">
-      <input type="reset" value="new game">
-      <input type="submit" value="End Turn">
+      <input type="reset" value="Start Stream" onclick="startStreams()">
+      <input type="submit" value="Start Game" onclick="sendCommand('startGame', startGame); setGameStatus(true)">
+      <input type="reset" value="Stop Stream" onclick="stopStreams(); setGameStatus(false)">
     </div>
   </div>
 
 </div>
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -116,6 +116,15 @@ table td {
   background-position: 10px;
 }
 
+.boardPlace-marked {
+  width: 150px;
+  height: 150px;
+  background-image: url("./X.svg");
+  background-size: 130px;
+  background-repeat: no-repeat;
+  background-position: 10px;
+}
+
 .boardPlace input[type=checkbox] {
   visibility: hidden;
 }
@@ -128,6 +137,15 @@ table td {
 
   cursor: pointer;
 }
+
+.marked {
+  opacity: 1;
+}
+
+.unmarked {
+
+}
+
 
 /* Table with no outside border from http://stackoverflow.com/questions/1257430/css-border-only-inside-the-table */
 table tr:first-child td {
@@ -145,6 +163,7 @@ table tr td:first-child {
 table tr td:last-child {
   border-right: 0;
 }
+
 
 #playerTurn {
   width: auto;
