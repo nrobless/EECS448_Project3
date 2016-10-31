@@ -110,7 +110,7 @@ table td {
   -moz-transition: opacity .5s ease-in-out;
   -webkit-transition: opacity .5s ease-in-out;
 
-  background-image: url("../web/X.svg");
+  background-image: url("./X.svg");
   background-size: 130px;
   background-repeat: no-repeat;
   background-position: 10px;
