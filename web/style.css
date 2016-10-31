@@ -1,3 +1,14 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+
+    font-size: 12pt;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 /*** General container ***/
 #container {
   width: 100%;
@@ -268,16 +279,16 @@ table tr td:last-child {
   display: -webkit-flex;
   display: flex;
 
-  -webkit-flex-flow: row nowrap;
-  flex-flow: row nowrap;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
   justify-content: center;
 }
 
 /* Button press effect from http://www.w3schools.com/css/css3_buttons.asp */
 #sidebar input[type=reset], #sidebar input[type=submit] {
-  width: 130px;
+  width: 175px;
   height: auto;
-  padding: 10px 20px;
+  padding: 10px;
   margin: 15px auto;
 
   font-size: 16pt;
