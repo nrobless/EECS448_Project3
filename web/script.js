@@ -47,7 +47,15 @@ function updateGameInfo(jsonData) {
     //
     if( jsonData["whosTurn"] )
     {
+        console.log(jsonData["whosTurn"]);
         playerTurn = jsonData["whosTurn"];
+        if(playerTurn == "P1") {
+            $("#playerTurn").text("Player 1");
+        } else if(playerTurn == "P2") {
+            $("#playerTurn").text("Player 2");
+        } else {
+            $("#playerTurn").text(jsonData["whosTurn"]);
+        }
     }
     else
     {
@@ -187,7 +195,7 @@ function stream_onreadystatechange() {
 
 function sendCommand(stream_name, postData) {
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "https://people.eecs.ku.edu/~jfustos/cgi-bin/testSocket.cgi", true);
+    xhttp.open("POST", "https://people.eecs.ku.edu/~jfustos/cgi-bin/ticTacToeCommand.cgi", true);
     xhttp.j_last_index = 0;
     xhttp.j_stream_name = stream_name;
     xhttp.onprogress = stream_progress;
