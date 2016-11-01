@@ -177,6 +177,15 @@ table tr td:last-child {
 }
 
 /*** Chatbox ***/
+
+.red-color {
+  color: red;
+}
+
+.green-color {
+  color:green;
+}
+
 #chat {
   width: 100%;
   height: 40%;
@@ -382,5 +391,9 @@ table tr td:last-child {
 }
 
 #playerTurn {
+  color: #556B2F;
+}
+
+#victoryMsg {
   color: #556B2F;
 }

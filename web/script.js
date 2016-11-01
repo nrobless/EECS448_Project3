@@ -30,7 +30,18 @@ function newMessage(jsonData) {
         return;
     }
 
-    console.log("MESSAGE from |" + jsonData.player + "| says |" + jsonData.message + "|");
+    var messageOwner = "";
+    var color = "";
+
+    if(jsonData.player === "P1") {
+        messageOwner = "Player 1";
+        color = "green-color";
+    } else {
+        messageOwner = "Player 2";
+        color = "red-color";
+    }
+
+    $('#chat-messages').prepend("<div class='message " + color + "'><strong>" + messageOwner + ": </strong>" + jsonData.message + "</div>");
 }
 
 function updateGameInfo(jsonData) {
@@ -47,14 +58,13 @@ function updateGameInfo(jsonData) {
     //
     if( jsonData["whosTurn"] )
     {
-        console.log(jsonData["whosTurn"]);
         playerTurn = jsonData["whosTurn"];
         if(playerTurn == "P1") {
             $("#playerTurn").text("Player 1");
         } else if(playerTurn == "P2") {
             $("#playerTurn").text("Player 2");
         } else {
-            $("#playerTurn").text(jsonData["whosTurn"]);
+            $("#playerTurn").text("No One");
         }
     }
     else
@@ -62,18 +72,23 @@ function updateGameInfo(jsonData) {
         console.log( "Error: no whosTurn field this update!!!" );
     }
 
-    // if( jsonData["status"] )
-    // {
-    //     if(jsonData["status"] === "Waiting") {
-    //         gameActive = true;
-    //     } else {
-    //         gameActive = false;
-    //     }
-    // }
-    // else
-    // {
-    //     console.log( "Error: no winner field this update!!!" );
-    // }
+    if( jsonData["winner"] && jsonData["status"] === "gameOver" )
+    {
+        var theVictor = jsonData["winner"];
+
+        if(theVictor === "P1") {
+            $("#victoryMsg").text("Player 1 Wins!");
+        } else if(theVictor === "P2") {
+            $("#victoryMsg").text("Player 2 Wins!");
+        }
+    }
+    else if(jsonData["status"] !== "gameOver") {
+            $("#victoryMsg").text("");
+    }
+    else
+    {
+        console.log( "Error: no winner field this update!!!" );
+    }
     //
     // if( jsonData["player"] && jsonData["player"][0] && jsonData["player"][0]["name"] && jsonData["player"][0]["status"])
     // {
@@ -106,15 +121,6 @@ function updateGameInfo(jsonData) {
         if(jsonData["status"]) {
             updateBoard(board);
         }
-        // document.getElementById("r0c0").value = "" + jsonData["board"][0][0];
-        // document.getElementById("r0c1").value = "" + jsonData["board"][0][1];
-        // document.getElementById("r0c2").value = "" + jsonData["board"][0][2];
-        // document.getElementById("r1c0").value = "" + jsonData["board"][1][0];
-        // document.getElementById("r1c1").value = "" + jsonData["board"][1][1];
-        // document.getElementById("r1c2").value = "" + jsonData["board"][1][2];
-        // document.getElementById("r2c0").value = "" + jsonData["board"][2][0];
-        // document.getElementById("r2c1").value = "" + jsonData["board"][2][1];
-        // document.getElementById("r2c2").value = "" + jsonData["board"][2][2];
     }
     else {
         console.log("Did not find board!!!");
@@ -274,14 +280,15 @@ function resetBoard() {
     currentPlayer = $("input:radio[name ='player']:checked").val();
     changeIcon(currentPlayer);
 }
-// function setGameStatus(boolVar) {
-//     gameActive = boolVar;
-// }
+
+function sendMessage(message) {
+    var messageObj = JSON.stringify({"name": "sendMessage", "player": currentPlayer, "message": message});
+    sendCommand('message', messageObj);
+
+}
 
 $('.boardPlace').click(function (event) {
     if(currentPlayer === playerTurn) {
-        console.log(event.target.id);
-        console.log(currentPlayer);
         $('#' + event.target.id).addClass('boardPlace-marked').removeClass('boardPlace');
     }
 });
@@ -294,9 +301,12 @@ $("input:radio[name = 'player']").click(function () {
 /* Chatbox scrolling from http://stackoverflow.com/questions/20627807/jquery-chat-box-show-first-messages-at-bottom-of-div-moving-up */
 $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
 
-console.log(currentPlayer);
+$("#send").keypress(function(e) {
+    message = $("#send").val();
 
-/* To do
-On gameOver: Make sure to refresh screen
+    if(e.which == 13 && message != '' ) {
+        sendMessage(message);
+        $("#send").val('');
+    }
+});
 
- */
