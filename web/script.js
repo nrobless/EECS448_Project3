@@ -283,6 +283,9 @@ $("input:radio[name = 'player']").click(function () {
     changeIcon(currentPlayer);
 });
 
+/* Chatbox scrolling from http://stackoverflow.com/questions/20627807/jquery-chat-box-show-first-messages-at-bottom-of-div-moving-up */
+$('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+
 console.log(currentPlayer);
 
 /* To do
