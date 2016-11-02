@@ -1,0 +1,55 @@
+This file contains descriptions of the top level modules.
+
+Command.pm
+	setReporter => function
+		args:
+			reporter => Reporter
+		Returns none.
+		Set the reporter that the command module will use.
+	
+	getCommandStreams => function
+		args:
+			None
+		Get a reference to the command stream hash.
+		
+	add => function
+		args:
+			command => JSON encoded string
+			client  => socket that made the request
+		returns none
+		Add this command to be processed later.
+	
+	runAll
+		args:
+			game => Game
+		returns None
+		Executes all commands that were added with add()
+
+	runCommand
+		args:
+			command_struct => CommandStruct
+			game           => Game
+		returns None
+		Process a single command sent in from the client.
+
+Conf.pm
+	%conf => hash
+		Contains the key value pairs that hold the editable values for the
+		program. Edit these once you have copied over the modules.
+	
+	get => function
+		returns the |%conf| for use in the program.
+
+
+Report.pm
+	start => function
+		args:
+			$logFile => file name to log to.
+		Opens the log file |$logFile| for writing and returns a function
+		vector which should be used to log and croak errors.
+	
+	myLog => function
+		args:
+			$message => The message to log
+			$error   => If it should get marked as an error.
+		Logs to the open logfile. If |$error| is anything mark the log as an error.
