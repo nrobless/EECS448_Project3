@@ -1,0 +1,44 @@
+Contains the API for the Commands submodules.
+
+GetGameStream.pm
+	getGameStream => function
+		args:
+			game     => The Game structure.
+			command  => The Command structure.
+		Corresponds to the http command structure
+			{"name":"getGameStream","player":PlayerName}
+		Sets up a data stream for player |player| on this http connection.
+
+
+Move.pm
+	move => function
+		args:
+			game     => The Game structure.
+			command  => The Command structure.
+		Corresponds to the http command structure
+			{"name":"move","player":PlayerName,"row":row,"col":col}
+		If a valid |PlayerName| |row| and |col| are entered, the game
+		is going it is the player's turn and the move is available this
+		will make the move. If the user then wins, internal varialbles
+		are set accordingly.
+
+
+SendMessage.pm
+	sendMessage => function
+		args:
+			game     => The Game structure.
+			command  => The Command structure.
+		Corresponds to the http command structure
+			{"name":"sendMessage","player":PlayerName,"message":message}
+		Broadcasts out |message| to all players in the game.
+
+
+StartGame.pm
+	startGame => function
+		args:
+			game     => The Game structure.
+			command  => The Command structure.
+		Corresponds to the http command structure
+			{"name":"startGame","player":PlayerName}
+		If the game is in the waiting state, this command will move it into
+		the gameON state. Otherwise it is silently ignored.

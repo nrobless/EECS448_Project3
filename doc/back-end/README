@@ -1,0 +1,47 @@
+This file contains a description of the backend contained in the project
+back-end directory. 
+
+backEnd/cgi-bin/
+	Files in here should be installed in a directory that apache can execute
+	Perl scripts from. These are the end points that any front ends will use
+	to communicate with the game.
+
+backEnd/cgi-bin/ticTacToeCommand.cgi
+	The end point to send commands into a game. This process will communicate
+	with the game through the named socket that the game creates at 
+	back-end/gameFiles/1234567890
+
+backEnd/cgi-bin/ticTacToeStart.cgi
+	Call the URL pointing to this file to start off the game on the web server
+	as a long lived process. This web page does not need to be kept open.
+	If any file exists at back-end/gameFiles/die games will not run, and any active
+	game will stop running. back-end/gameFiles/deathOut will catch any error
+	messages if the game dies unexpectedly.
+
+
+backEnd/gameLobby.pl
+	The main process that is started by backEnd/cgi-bin/ticTacToeStart.cgi.
+	Much of the functionality is contained in the modules, but this file handles
+	listening on the socket at back-end/gameFiles/1234567890 for incomming connection,
+	Then reading from those connections and processing commands from them.
+	It then calls into the modules/Command.pm modules to execute them.
+	If file back-end/gameFiles/die exists, this will stop running the next frame.
+	
+
+backEnd/modules
+	The modules that the main script calls into. Most of the heavy lifting
+	is done within these. Described in doc/backEnd/modules.
+
+
+backEnd/log.txt
+	The log file for the backend. While some information is sent back over
+	the http response, more in-depth information is stored here.
+	This file will be created automatically and does not need to be copied over.
+	Its location may be changed by editing:
+		backEnd/modules/Conf.pm => $conf{'logFile'}
+
+backEnd/tests/P1.html
+backEnd/tests/P2.html
+	These html pages are very crude front-ends that can be used to test the back-end.
+	By clicking on the buttons provided a ticTacToe game is simulated.
+	These files will not start the gameLobby, that needs to be done manually.
